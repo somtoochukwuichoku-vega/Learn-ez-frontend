@@ -20,6 +20,7 @@ export interface Organization {
     is_public?: boolean;
     member_count?: number;
     user_role?: 'admin' | 'instructor' | 'student' | null;
+    description?: string;
 }
 
 export interface OrganizationMember {

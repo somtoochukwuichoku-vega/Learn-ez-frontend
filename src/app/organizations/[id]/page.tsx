@@ -1,16 +1,18 @@
 'use client';
 
 import {useEffect, useState} from 'react';
-import {useRouter, useParams} from 'next/navigation';
-import {useAuthStore} from '@/store/authStore';
+import {useParams, useRouter} from 'next/navigation';
+
 import AppLayout from '@/components/AppLayout';
-import api from '@/lib/api';
-import {Organization, Course, Category, Level} from '@/types';
-import {Building2, Users, Globe, Calendar, BookOpen, ArrowLeft, UserPlus, UserMinus, Settings, BarChart3, Shield, Upload, X} from 'lucide-react';
-import {formatDate} from '@/lib/utils';
-import toast from 'react-hot-toast';
 import CourseCard from '@/components/CourseCard';
 import MemberManagement from '@/components/MemberManagement';
+import api from '@/lib/api';
+import {formatDate} from '@/lib/utils';
+import {useAuthStore} from '@/store/authStore';
+import {Category, Course, Level, Organization} from '@/types';
+
+import {ArrowLeft, BookOpen, Building2, Calendar, Globe, Settings, Shield, Upload, UserMinus, UserPlus, Users, X} from 'lucide-react';
+import toast from 'react-hot-toast';
 
 export default function OrganizationDetailPage() {
     const router = useRouter();
@@ -128,7 +130,7 @@ export default function OrganizationDetailPage() {
                 // If we get permission error, user might not have access to courses yet
                 if (courseError.response?.status === 403) {
                     console.log('No permission to view courses - might be pending approval');
-                    toast.info('Your membership is pending approval');
+                    toast.dismiss('Your membership is pending approval');
                     setCourses([]);
                 } else {
                     throw courseError;
