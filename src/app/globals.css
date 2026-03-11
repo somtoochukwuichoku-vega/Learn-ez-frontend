@@ -1,0 +1,111 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 transition-colors duration-300;
+        font-family:
+            'Inter',
+            -apple-system,
+            BlinkMacSystemFont,
+            'Segoe UI',
+            'Roboto',
+            sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-display font-bold;
+    }
+}
+
+@layer components {
+    /* Enhanced Glass Effects with Glassmorphism */
+    .glass {
+        @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-2xl border border-white/30 dark:border-gray-700/30 shadow-2xl;
+    }
+
+    .glass-card {
+        @apply glass rounded-3xl p-6 hover:shadow-[0_20px_60px_-15px_rgba(12,19,79,0.3)] dark:hover:shadow-[0_20px_60px_-15px_rgba(12,19,79,0.5)] hover:border-primary-200/50 dark:hover:border-primary-700/50 transition-all duration-300 backdrop-blur-2xl;
+    }
+
+    /* Text Gradients - Removed, using solid colors */
+    .text-gradient {
+        @apply text-primary-900 dark:text-primary-400;
+    }
+
+    /* Buttons */
+    .btn-primary {
+        @apply bg-primary-900 hover:bg-primary-800 dark:bg-primary-800 dark:hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg shadow-primary-900/30 hover:shadow-xl hover:shadow-primary-900/40 transition-all duration-300 active:scale-95 backdrop-blur-sm inline-flex items-center justify-center gap-2;
+    }
+
+    .btn-secondary {
+        @apply glass hover:bg-white/90 dark:hover:bg-gray-800/90 text-gray-700 dark:text-gray-200 font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 inline-flex items-center justify-center gap-2;
+    }
+
+    /* Sidebar */
+    .sidebar-item {
+        @apply flex items-center gap-3 px-4 py-3 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-primary-50 dark:hover:bg-primary-950/30 hover:text-primary-900 dark:hover:text-primary-300 transition-all duration-200 cursor-pointer;
+    }
+
+    .sidebar-item-active {
+        @apply bg-primary-900 dark:bg-primary-800 text-white shadow-lg shadow-primary-900/30;
+    }
+
+    /* Input Fields with Glassmorphism */
+    .input-field {
+        @apply w-full px-4 py-3 rounded-xl border-2 border-gray-200/50 dark:border-gray-700/50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-900 focus:border-primary-900 dark:focus:ring-primary-700 dark:focus:border-primary-700 transition-all duration-200 shadow-sm;
+    }
+
+    /* Badges */
+    .badge {
+        @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm;
+    }
+
+    .badge-primary {
+        @apply bg-primary-100 dark:bg-primary-950/50 text-primary-900 dark:text-primary-300 border border-primary-200/50 dark:border-primary-800/50;
+    }
+
+    .badge-success {
+        @apply bg-success-100 dark:bg-success-950/50 text-success-700 dark:text-success-300 border border-success-200/50 dark:border-success-800/50;
+    }
+
+    .badge-warning {
+        @apply bg-warning-100 dark:bg-warning-950/50 text-warning-700 dark:text-warning-300 border border-warning-200/50 dark:border-warning-800/50;
+    }
+
+    .badge-danger {
+        @apply bg-danger-100 dark:bg-danger-950/50 text-danger-700 dark:text-danger-300 border border-danger-200/50 dark:border-danger-800/50;
+    }
+
+    /* Progress Bar */
+    .progress-bar {
+        @apply w-full h-2.5 bg-gray-200/70 dark:bg-gray-800/70 rounded-full overflow-hidden backdrop-blur-sm;
+    }
+
+    .progress-fill {
+        @apply h-full bg-primary-900 dark:bg-primary-700 rounded-full transition-all duration-500;
+    }
+
+    /* Card Glow Effect */
+    .card-glow {
+        @apply relative;
+    }
+
+    .card-glow::before {
+        content: '';
+        @apply absolute -inset-[1px] rounded-3xl opacity-0 transition-opacity duration-500 blur-xl;
+        background: radial-gradient(circle at center, rgba(12, 19, 79, 0.15), transparent 70%);
+    }
+
+    .card-glow:hover::before {
+        @apply opacity-100;
+    }
+}
