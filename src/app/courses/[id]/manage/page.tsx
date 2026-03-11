@@ -1,12 +1,17 @@
 'use client';
 
-import {useEffect, useState} from 'react';
-import {useRouter, useParams} from 'next/navigation';
-import {useAuthStore} from '@/store/authStore';
+import { useEffect, useState } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+
 import AppLayout from '@/components/AppLayout';
 import api from '@/lib/api';
-import {Course, Module, Lesson} from '@/types';
-import {BookOpen, Plus, Edit, Trash2, ChevronDown, ChevronRight, Video, FileText, HelpCircle, ArrowLeft} from 'lucide-react';
+import { useAuthStore } from '@/store/authStore';
+import { Course, Module } from '@/types';
+
+import {
+  ArrowLeft, BookOpen, ChevronDown, ChevronRight, FileText, HelpCircle, Plus,
+  Video,
+} from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export default function CourseManagePage() {
@@ -286,7 +291,7 @@ export default function CourseManagePage() {
                                             ))
                                         ) : (
                                             <p className='text-sm text-slate-500 dark:text-slate-400 text-center py-4'>
-                                                No lessons yet. Click "Add Lesson" to create one.
+                                                No lessons yet. Click &quot;Add Lesson&quot; to create one.
                                             </p>
                                         )}
                                     </div>
